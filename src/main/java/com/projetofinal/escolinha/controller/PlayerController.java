@@ -1,8 +1,8 @@
 package com.projetofinal.escolinha.controller;
 
 
-import com.projetofinal.escolinha.model.Jogador;
-import com.projetofinal.escolinha.service.JogadorServiceImpl;
+import com.projetofinal.escolinha.model.Player;
+import com.projetofinal.escolinha.service.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,22 +13,22 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/jogador")
-public class JogadorController {
+public class PlayerController {
 
     @Autowired
-    private JogadorServiceImpl jogadorServiceImpl;
+    private PlayerServiceImpl jogadorServiceImpl;
 
     // Metodo de listar os valores na API
     @GetMapping
-    public ResponseEntity<List<Jogador>> getAllJogador(){
+    public ResponseEntity<List<Player>> getAllJogador(){
         return ResponseEntity.ok().body(jogadorServiceImpl.listarjogadores());
 
     }
 
     // Metodo criado para cadastrar valores na API
     @PostMapping
-    public ResponseEntity<Object> inserirJogador(@RequestBody Jogador jogador){
-        return ResponseEntity.status(HttpStatus.CREATED).body(jogadorServiceImpl.cadastrarJogador(jogador));
+    public ResponseEntity<Object> inserirJogador(@RequestBody Player player){
+        return ResponseEntity.status(HttpStatus.CREATED).body(jogadorServiceImpl.cadastrarJogador(player));
     }
 
     @GetMapping(value = "/{id}")
@@ -44,16 +44,16 @@ public class JogadorController {
 
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateJogador(@PathVariable(value = "id") Integer id,@RequestBody Jogador jogador){
-        Optional<Jogador> dadosJogador = jogadorServiceImpl.listarJogador(id);
-        Jogador atualizarJogador = dadosJogador.get();
-        atualizarJogador.setNome(jogador.getNome());
-        atualizarJogador.setIdade(jogador.getIdade());
-        atualizarJogador.setPerna(jogador.getPerna());
-        atualizarJogador.setPeso(jogador.getPeso());
-        atualizarJogador.setPosicao(jogador.getPosicao());
+    public ResponseEntity<Object> updateJogador(@PathVariable(value = "id") Integer id,@RequestBody Player player){
+        Optional<Player> dadosJogador = jogadorServiceImpl.listarJogador(id);
+        Player atualizarPlayer = dadosJogador.get();
+        atualizarPlayer.setNome(player.getNome());
+        atualizarPlayer.setIdade(player.getIdade());
+        atualizarPlayer.setPerna(player.getPerna());
+        atualizarPlayer.setPeso(player.getPeso());
+        atualizarPlayer.setPosicao(player.getPosicao());
 
-        return ResponseEntity.status(HttpStatus.OK).body(jogadorServiceImpl.cadastrarJogador(atualizarJogador));
+        return ResponseEntity.status(HttpStatus.OK).body(jogadorServiceImpl.cadastrarJogador(atualizarPlayer));
     }
 
 }
