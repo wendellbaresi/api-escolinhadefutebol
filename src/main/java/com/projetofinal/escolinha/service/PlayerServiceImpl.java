@@ -1,9 +1,9 @@
 package com.projetofinal.escolinha.service;
 
 
-import com.projetofinal.escolinha.model.Categoria;
-import com.projetofinal.escolinha.model.Jogador;
-import com.projetofinal.escolinha.respository.JogadorRepository;
+import com.projetofinal.escolinha.model.Category;
+import com.projetofinal.escolinha.model.Player;
+import com.projetofinal.escolinha.respository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,41 +12,41 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JogadorServiceImpl implements JogadorService {
+public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
-    private JogadorRepository jogadorRepository;
+    private PlayerRepository playerRepository;
 
     @Autowired
-    private JogadorService service;
+    private PlayerService service;
 
     @Transactional
     @Autowired
-    public Jogador cadastrarJogador(Jogador jogador){
+    public Player cadastrarJogador(Player player){
         Ma
 
-        15, new Categoria(1);
-        Categoria categoria2 = new Categoria(2);
-        Categoria categoria3 = new Categoria(3);
-        Categoria categoria4 = new Categoria(4);
+        15, new Category(1);
+        Category category2 = new Category(2);
+        Category category3 = new Category(3);
+        Category category4 = new Category(4);
     }
 
     // Bean que lista todos os jogadores
-    public List<Jogador> listarjogadores(){
-        List<Jogador> jogador = jogadorRepository.findAll();
-        return jogador;
+    public List<Player> listarjogadores(){
+        List<Player> player = playerRepository.findAll();
+        return player;
     }
 
 
     // Faz o tratamento para quando houver valores nulos
-    public Optional<Jogador> listarJogador(Integer id){
-        return jogadorRepository.findById(id);
+    public Optional<Player> listarJogador(Integer id){
+        return playerRepository.findById(id);
     }
 
     // Bean para garantir integridade dos dados, na hora de remover
     @Transactional
     public void removerJogador(Integer id){
-        jogadorRepository.deleteById(id);
+        playerRepository.deleteById(id);
     }
 
 }
