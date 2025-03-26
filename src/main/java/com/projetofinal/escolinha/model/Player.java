@@ -1,12 +1,10 @@
 package com.projetofinal.escolinha.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "jogador")
-public class Jogador {
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +25,11 @@ public class Jogador {
 
     @ManyToOne // Relaçao de Muitos para Um
     @JoinColumn(name = "id_categoria")
-    private Categoria categoria;
+    private Category category;
 
 
 
-    public Jogador(){
+    public Player(){
 
     }
 
@@ -96,11 +94,11 @@ public class Jogador {
         this.posicao = posicao;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Category getCategoria() {
+        return category;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setCategoria(Category category) {
+        this.category = category;
     }
 }
