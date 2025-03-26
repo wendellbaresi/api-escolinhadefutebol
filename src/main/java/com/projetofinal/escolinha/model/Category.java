@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "categoria")
-public class Categoria {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -15,11 +15,11 @@ public class Categoria {
 
 
     // Metodos Construtores
-    public Categoria(){
+    public Category(){
 
     }
 
-    public Categoria(Integer id){
+    public Category(Integer id){
         this.id = id;
     }
 
