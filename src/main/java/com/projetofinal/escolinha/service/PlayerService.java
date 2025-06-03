@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface PlayerService {
     List<Player> listarjogadores();
-    Player cadastrarJogador(Player player);
+    Player registerPlayer(Player player);
     Optional<Player> listarJogador(Integer id);
     void removerJogador(Integer id);
 }
