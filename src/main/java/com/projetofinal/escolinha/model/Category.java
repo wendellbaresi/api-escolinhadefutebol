@@ -1,42 +1,23 @@
 package com.projetofinal.escolinha.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "categoria")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
-
-    // Metodos Construtores
-    public Category(){
-
-    }
-
-    public Category(Integer id){
-        this.id = id;
-    }
-
-    //Metodos Especiais
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 }
